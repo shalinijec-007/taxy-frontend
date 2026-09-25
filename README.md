@@ -2,6 +2,10 @@
 
 Taxy is a kid-friendly educational application designed to teach children about money and taxes through simple stories, interactive missions, and an XP-based learning experience.
 
+## 🖥️ Application Preview
+
+![Taxy Home Screen](./screenshots/taxy-home.png)
+
 This repository contains the **React frontend** for Taxy.
 
 ## 🚀 Features
