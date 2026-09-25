@@ -1,16 +1,42 @@
-# React + Vite
+# 💰 Taxy — Taxes Made Fun for Kids
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Taxy is a kid-friendly educational application designed to teach children about money and taxes through simple stories, interactive missions, and an XP-based learning experience.
 
-Currently, two official plugins are available:
+This repository contains the **React frontend** for Taxy.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+- Create a kid profile with name and age
+- Display the kid's current level and XP
+- Load age-appropriate tax lessons
+- Interactive mission-based learning experience
+- XP rewards for completing lessons
+- Responsive and kid-friendly user interface
+- Integration with a Spring Boot REST API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧒 How It Works
 
-## Expanding the ESLint configuration
+A child starts by creating a profile.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The React application sends the profile information to the Spring Boot backend.
+
+After the profile is created, the child can start learning.
+
+Taxy uses the child's age to request appropriate lessons from the backend.
+
+Example:
+
+```text
+Kid Profile
+     ↓
+React Frontend
+     ↓
+Spring Boot REST API
+     ↓
+PostgreSQL
+     ↓
+Age-Appropriate Lessons
+     ↓
+Interactive Missions
+     ↓
+Earn XP ⭐
