@@ -1,0 +1,597 @@
+/* =========================================================
+   TAXY - MAIN STYLES
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   GLOBAL SETTINGS
+   box-sizing makes width calculations easier and predictable.
+   --------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #ffffff;
+}
+
+
+/* ---------------------------------------------------------
+   ENTIRE APPLICATION
+   --------------------------------------------------------- */
+
+.app {
+  min-height: 100vh;
+
+  /* Fun kid-friendly background */
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      #fff3a6 0,
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
+      #b8f1ff 0,
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #8be0ff,
+      #c7f4ff,
+      #b9f6ca
+    );
+
+  padding: 20px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+  width: 100%;
+  max-width: 850px;
+
+  margin: 0 auto 25px auto;
+
+  background: white;
+
+  border-radius: 20px;
+
+  padding: 16px 25px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+
+/* TAXY logo */
+
+.logo {
+  font-size: 28px;
+
+  font-weight: bold;
+
+  color: #202060;
+}
+
+
+/* XP shown on top right */
+
+.xp-badge {
+  background: #fff5c2;
+
+  padding: 10px 18px;
+
+  border-radius: 25px;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  color: #202060;
+
+  border: 2px solid #ffd54f;
+}
+
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+.main-content {
+  display: flex;
+
+  justify-content: center;
+
+  width: 100%;
+}
+
+
+/* Main white game area */
+
+.game-panel {
+  width: 100%;
+
+  max-width: 750px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-radius: 30px;
+
+  padding: 30px 35px;
+
+  text-align: center;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   HERO / HEADLINE
+   ========================================================= */
+
+.hero {
+  text-align: center;
+
+  margin-bottom: 28px;
+}
+
+
+/* Rocket */
+
+.hero-icon {
+  font-size: 48px;
+
+  line-height: 1;
+
+  margin-bottom: 16px;
+}
+
+
+/* Main heading */
+
+.hero h1 {
+  margin: 0;
+
+  font-size: 42px;
+
+  /*
+     Very important:
+     prevents the two heading lines from overlapping.
+  */
+  line-height: 1.18;
+
+  font-weight: 800;
+
+  color: #202060;
+}
+
+
+/* Text underneath the heading */
+
+.hero p {
+  margin: 15px 0 0 0;
+
+  font-size: 18px;
+
+  line-height: 1.5;
+
+  color: #666666;
+}
+
+
+/* =========================================================
+   PROFILE CARD
+   ========================================================= */
+
+.profile-card {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin: 0 auto;
+
+  padding: 25px;
+
+  background: #fff9e8;
+
+  border: 2px solid #ffe0a3;
+
+  border-radius: 20px;
+}
+
+
+/* Profile card title */
+
+.profile-card h2 {
+  margin: 0 0 22px 0;
+
+  color: #202060;
+
+  font-size: 24px;
+}
+
+
+/* =========================================================
+   PROFILE FORM
+   ========================================================= */
+
+/*
+   CSS Grid gives us two aligned columns.
+
+   Column 1 = label
+   Column 2 = input
+
+   Example:
+
+   Name: | [____________]
+   Age:  | [____________]
+*/
+
+.profile-form {
+  display: grid;
+
+  grid-template-columns: 120px 1fr;
+
+  gap: 15px 20px;
+
+  align-items: center;
+
+  text-align: left;
+}
+
+
+/* Name and Age labels */
+
+.profile-form label {
+  font-size: 18px;
+
+  font-weight: bold;
+
+  color: #25255c;
+}
+
+
+/* Name and Age input boxes */
+
+.profile-form input {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  font-size: 16px;
+
+  border: 2px solid #dddddd;
+
+  border-radius: 10px;
+
+  background: white;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* When kid clicks inside input */
+
+.profile-form input:focus {
+  border-color: #35b95a;
+
+  box-shadow: 0 0 0 3px rgba(53, 185, 90, 0.12);
+}
+
+
+/* =========================================================
+   START ADVENTURE BUTTON
+   ========================================================= */
+
+.adventure-button {
+  width: 100%;
+
+  margin-top: 22px;
+
+  padding: 15px 20px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #35b95a;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* Button hover effect */
+
+.adventure-button:hover {
+  transform: translateY(-2px);
+
+  background: #2ca64d;
+
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Button press effect */
+
+.adventure-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   LEARN / EARN XP / LEVEL UP
+   ========================================================= */
+
+.features {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  width: 100%;
+
+  max-width: 550px;
+
+  margin: 28px auto 0 auto;
+}
+
+
+/* Individual feature */
+
+.feature {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 90px;
+
+  color: #202060;
+
+  font-size: 17px;
+}
+
+
+/* Separator between features */
+
+.feature:not(:last-child) {
+  border-right: 1px solid #dddddd;
+}
+
+
+/* Large feature icon */
+
+.feature span {
+  display: block;
+
+  font-size: 38px;
+
+  line-height: 1.2;
+}
+
+
+.feature strong {
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   For tablets / smaller screens
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .app {
+    padding: 12px;
+  }
+
+  .header {
+    padding: 14px 18px;
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+
+  .game-panel {
+    padding: 25px 18px;
+  }
+
+  .hero-icon {
+    font-size: 42px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+  /*
+     On a phone we change the form from:
+
+     Name | Input
+
+     to:
+
+     Name
+     Input
+  */
+
+  .profile-form {
+    grid-template-columns: 1fr;
+
+    gap: 8px;
+  }
+
+
+  .profile-form input {
+    margin-bottom: 10px;
+  }
+
+
+  .profile-card {
+    padding: 20px;
+  }
+
+
+  .profile-card h2 {
+    font-size: 21px;
+  }
+
+
+  .hero h1 {
+    font-size: 29px;
+
+    line-height: 1.2;
+  }
+
+
+  .hero-icon {
+    font-size: 38px;
+
+    margin-bottom: 12px;
+  }
+
+
+  .features {
+    gap: 5px;
+  }
+
+
+  .feature {
+    font-size: 14px;
+  }
+
+
+  .feature span {
+    font-size: 30px;
+  }
+
+
+  .feature strong {
+    font-size: 14px;
+  }
+
+
+  .adventure-button {
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   PLAYER STATS
+   ========================================================= */
+
+.player-stats {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 15px;
+
+  margin: 25px 0;
+}
+
+.player-stats div {
+  background: white;
+
+  padding: 18px;
+
+  border-radius: 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  font-size: 18px;
+
+  color: #202060;
+
+  border: 2px solid #eee;
+}
+
+.player-stats span {
+  font-size: 30px;
+}
+
+/* =========================================================
+   TAX LESSON / MISSION
+   ========================================================= */
+
+.profile-card h3 {
+  margin: 20px 0 12px 0;
+  font-size: 25px;
+  color: #202060;
+}
+
+.profile-card p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #555555;
+}
+
+/* XP reward shown for completing the mission */
+.lesson-reward {
+  width: fit-content;
+  margin: 20px auto;
+  padding: 10px 18px;
+
+  background: #fff5c2;
+  border: 2px solid #ffd54f;
+  border-radius: 20px;
+
+  color: #202060;
+  font-size: 17px;
+  font-weight: bold;
+}
