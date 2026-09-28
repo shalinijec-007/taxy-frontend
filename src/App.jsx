@@ -1,4 +1,5 @@
 import KidProfileForm from "./components/KidProfileForm";
+import TaxyChat from "./components/TaxyChat";
 import "./App.css";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
 
           {/* Kid profile form */}
           <KidProfileForm />
+		  <TaxyChat />
 
           {/* Game benefits */}
           <div className="features">

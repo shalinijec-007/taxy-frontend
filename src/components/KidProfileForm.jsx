@@ -11,6 +11,11 @@ function KidProfileForm() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [userType, setUserType] = useState(null);
   const [missionCompleted, setMissionCompleted] = useState(false);
+  const [lessonAlreadyCompleted, setLessonAlreadyCompleted] = useState(false);
+  const [aiQuestion, setAiQuestion] = useState("");
+  const [aiAnswer, setAiAnswer] = useState("");
+  const [aiLoading, setAiLoading] = useState(false);
+  
   const handleSubmit = async () => {
 
     // Create the request body expected by Spring Boot
@@ -81,7 +86,7 @@ function KidProfileForm() {
     try {
 
       const response = await fetch(
-        `http://localhost:8080/api/kids/${profile.id}/xp?earnedXp=${lessons[0].xpReward}`,
+        `http://localhost:8080/api/kids/${profile.id}/xp?lessonId=${lessons[0].id}&earnedXp=${lessons[0].xpReward}`,
         {
           method: "PUT"
         }
@@ -117,6 +122,19 @@ function KidProfileForm() {
 
       // Store the lessons in React state
       setLessons(data);
+	  // If a lesson was found, check whether this kid already completed it
+	  if (data.length > 0) {
+
+	    const progressResponse = await fetch(
+	      `http://localhost:8080/api/progress/${profile.id}/lessons/${data[0].id}`
+	    );
+
+	    const completed = await progressResponse.json();
+
+	    setLessonAlreadyCompleted(completed);
+
+	    console.log("Lesson already completed:", completed);
+	  }
 
       console.log("Lessons:", data);
 
@@ -126,12 +144,84 @@ function KidProfileForm() {
     }
   };
   
+  const handleAskTaxy = async () => {
+
+    if (!aiQuestion.trim()) {
+      return;
+    }
+
+    setAiLoading(true);
+    setAiAnswer("");
+
+    try {
+
+      const response = await fetch(
+        "http://localhost:8080/api/ai/explain",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            question: aiQuestion,
+            age: profile.age
+          })
+        }
+      );
+
+      const answer = await response.text();
+
+      setAiAnswer(answer);
+
+    } catch (error) {
+
+      console.error("Error asking Taxy:", error);
+
+      setAiAnswer(
+        "Sorry, Taxy could not answer right now."
+      );
+
+    } finally {
+
+      setAiLoading(false);
+    }
+  };
+  
   // If lessons have been loaded,
   // show the first lesson instead of the profile screen.
   if (lessons.length > 0) {
 
     const lesson = lessons[0];
 	
+	if (lessonAlreadyCompleted) {
+	  return (
+	    <div className="profile-card">
+	      <h2>✅ Mission Already Completed!</h2>
+
+	      <h3>🍋 {lesson.title}</h3>
+
+	      <p>
+	        Great job, {profile.name}! You have already completed this mission.
+	      </p>
+
+	      <div className="lesson-reward">
+	        ⭐ Reward already collected
+	      </div>
+
+	      <div className="player-stats">
+	        <div>
+	          <span>⭐</span>
+	          <strong>Level {profile.level}</strong>
+	        </div>
+
+	        <div>
+	          <span>⚡</span>
+	          <strong>{profile.totalXp} XP</strong>
+	        </div>
+	      </div>
+	    </div>
+	  );
+	}
 	// Show this screen after the kid successfully collects the XP
 	if (missionCompleted) {
 	  return (
@@ -240,7 +330,7 @@ function KidProfileForm() {
 		      🤔 Not quite! Try again.
 		    </div>
 		  )}
-
+		  
 	    </div>
 	  );
 	}

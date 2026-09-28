@@ -595,3 +595,123 @@ body {
   font-size: 17px;
   font-weight: bold;
 }
+
+.taxy-chat-button {
+  position: fixed;
+  right: calc((100vw - 1025px) / 2 + 25px);
+  bottom: 28px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 14px 22px;
+
+  border: 2px solid #f4b400;
+  border-radius: 30px;
+
+  background: #ffc928;
+  color: #17176b;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.taxy-chat-button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 11px 24px rgba(0, 0, 0, 0.23);
+}
+
+.taxy-chat-button:active {
+  transform: scale(0.97);
+}
+
+.taxy-chat-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(23, 23, 107, 0.35);
+}
+
+.taxy-chat-button:active {
+  transform: translateY(0);
+}
+
+.taxy-chat-icon {
+  font-size: 21px;
+}
+
+.taxy-chat-sparkle {
+  font-size: 14px;
+}
+
+/* Floating Ask Taxy chat window */
+.taxy-chat-window {
+  position: fixed;
+
+  right: calc((100vw - 1025px) / 2 + 25px);
+  bottom: 28px;
+
+  width: 350px;
+  height: 430px;
+
+  background: white;
+  border: 2px solid #ffc928;
+  border-radius: 22px;
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+
+  overflow: hidden;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Yellow header */
+.taxy-chat-header {
+  background: #ffc928;
+  color: #17176b;
+
+  padding: 16px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+
+/* X button */
+.taxy-chat-close {
+  border: none;
+  background: transparent;
+
+  color: #17176b;
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+
+/* Main conversation area */
+.taxy-chat-body {
+  flex: 1;
+
+  padding: 18px;
+
+  background: #fffdf5;
+
+  font-size: 15px;
+  line-height: 1.5;
+}
