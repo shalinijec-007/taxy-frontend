@@ -1,0 +1,13 @@
+<h2>Tax Lessons</h2>
+
+@for (lesson of lessons(); track lesson.id) {
+  <div class="lesson-card">
+    <h3>{{ lesson.title }}</h3>
+
+    <p>{{ lesson.description }}</p>
+
+    <p><strong>Difficulty:</strong> {{ lesson.difficulty }}</p>
+
+    <p><strong>Minimum Age:</strong> {{ lesson.minimumAge }}</p>
+  </div>
+}

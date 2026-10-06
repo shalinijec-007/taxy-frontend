@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-function KidProfileForm() {
+function KidProfileForm({ onProfileLoaded }) {
+	
 
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -46,8 +47,8 @@ function KidProfileForm() {
 	  // Convert Spring Boot JSON response into a JavaScript object
 	  const data = await response.json();
 
-	  // Save the returned profile into React state
 	  setProfile(data);
+	  onProfileLoaded(data);
 
 	  console.log("Profile created:", data);
 

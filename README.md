@@ -8,6 +8,18 @@ Taxy is a kid-friendly educational application designed to teach children about 
 
 This repository contains the **React frontend** for Taxy.
 
+## AskTaxy
+
+AskTaxy provides an interactive experience for kids to learn basic tax concepts.
+
+### AskTaxy Home
+
+![AskTaxy Home](screenshots/AskTaxyUI.png)
+
+### AskTaxy Chat
+
+![AskTaxy Chat](screenshots/AskTaxyUI2.png)
+
 ## 🚀 Features
 
 - Create a kid profile with name and age
